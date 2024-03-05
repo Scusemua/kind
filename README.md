@@ -1,5 +1,9 @@
 <p align="center"><img alt="kind" src="./logo/logo.png" width="300px" /></p>
 
+# Why does this fork exist?
+
+I wanted to be able to specify where to mount the "runtime persistent storage" of the nodes. The main disk on the server I use for development was getting full.
+
 # Please see [Our Documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) for more in-depth installation etc.
 
 kind is a tool for running local Kubernetes clusters using Docker container "nodes".
@@ -10,6 +14,7 @@ If you have [go] 1.16+ and [docker], [podman] or [nerdctl] installed `go install
 ![](site/static/images/kind-create-cluster.png)
 
 kind consists of:
+
 - Go [packages][packages] implementing [cluster creation][cluster package], [image build][build package], etc.
 - A command line interface ([`kind`][kind cli]) built on these packages.
 - Docker [image(s)][images] written to run systemd, Kubernetes, etc.
@@ -97,9 +102,12 @@ kind delete cluster
 ```
 
 <!--TODO(bentheelder): improve this part of the guide-->
+
 To create a cluster from Kubernetes source:
+
 - ensure that Kubernetes is cloned in `$(go env GOPATH)/src/k8s.io/kubernetes`
 - build a node image and create a cluster with:
+
 ```console
 kind build node-image
 kind create cluster --image kindest/node:latest
@@ -141,6 +149,7 @@ See also: our own [contributor guide] and the Kubernetes [community page].
 Participation in the Kubernetes community is governed by the [Kubernetes Code of Conduct].
 
 <!--links-->
+
 [go]: https://golang.org/
 [go-supported]: https://golang.org/doc/devel/release.html#policy
 [docker]: https://www.docker.com/
